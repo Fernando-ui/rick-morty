@@ -1,6 +1,12 @@
+import React from "react";
+import { Login } from "./components/Login";
 
-function App() {
-  return <div >Hola a todos</div>;
-}
+const App = () => {
+  //TODO  Colocar rutas
+  //TODO colocar redux
+  return (
+    <Login/>
+  );
+};
 
 export default App;
