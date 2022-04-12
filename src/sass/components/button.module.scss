@@ -1,0 +1,18 @@
+.card {
+  &__button {
+    text-align: center;
+    background-color: transparent;
+    width: 15rem;
+    height: 5rem;
+    cursor: pointer;
+    font-size: 2rem;
+    font-family: var(--text-family);
+    margin-top: 2rem;
+    margin-left: 30%;
+    color:#fff;
+    &:hover {
+    //   box-shadow: inset 15rem 0 0 0 var(--color-primary);
+    //   border: .2rem var(--color-primary) solid;
+    }
+  }
+}

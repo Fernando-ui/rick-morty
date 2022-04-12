@@ -26,17 +26,5 @@
     &__login:focus{
         outline:none;
     }
-    &__button{
-        text-align:center;
-        width:15rem;
-        background: linear-gradient(to right bottom,var( --color-tertiary), var(  --color-secundary)) ;       
-        border-radius: 1.5rem;
-        height:4rem;
-        cursor:pointer;
-        color:#fff;
-        font-size:2rem;
-        font-family: var(--text-family);
-        margin-top: 2rem;
-        margin-left:30%;
-    }
+   
 }

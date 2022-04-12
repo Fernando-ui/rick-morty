@@ -1,11 +1,12 @@
 import React from "react";
-import { Login } from "./components/Login";
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "./routes/AppRouter";
 
 const App = () => {
-  //TODO  Colocar rutas
-  //TODO colocar redux
   return (
-    <Login/>
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
   );
 };
 
