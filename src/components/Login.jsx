@@ -17,6 +17,7 @@ export const Login = () => {
   const { user, password } = values;
   const handleDashboard = (e) => {
     if (user.length > 1 && password.length > 1) {
+      sessionStorage.setItem('user',JSON.stringify({user,password}))
       navigate("/dashboard");
       return;
     }

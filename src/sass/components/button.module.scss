@@ -10,9 +10,9 @@
     margin-top: 2rem;
     margin-left: 30%;
     color:#fff;
+    transition:border .5s ease;
     &:hover {
-    //   box-shadow: inset 15rem 0 0 0 var(--color-primary);
-    //   border: .2rem var(--color-primary) solid;
+      border: .2rem var(--color-primary) solid;
     }
   }
 }
