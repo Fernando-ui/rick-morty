@@ -16,24 +16,15 @@ export const Login = () => {
   });
   const { user, password } = values;
   const handleDashboard = (e) => {
-    console.log(e, "Tenemos el evento");
-
-    // navigate('/dashboard');
+    if (user.length > 1 && password.length > 1) {
+      navigate("/dashboard");
+      return;
+    }
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
+    console.log("Recibiendo la informacion");
   };
-  const handleForm = (e) => {
-    if(e.target.value > 0){
-      console.log('Continuar');
-      
-    }else{
-      console.log('Tenemos menor, no pasa');
-      
-    }
-    
-    
-  };
+
   return (
     <div className={`${imagen.imgLogin} ${imagen.center}`}>
       <form onSubmit={(e) => handleSubmit(e)}>
@@ -49,7 +40,6 @@ export const Login = () => {
               required={true}
               autoComplete="off"
               onChange={handleInputChange}
-              onBlur={handleForm}
             />
           </div>
           <div>
@@ -61,14 +51,12 @@ export const Login = () => {
               name="password"
               required={true}
               onChange={handleInputChange}
-              onBlur={handleForm}
             />
           </div>
           <button
             onClick={(e) => handleDashboard(e)}
             type="submit"
             className={`${button.card__button}`}
-
           >
             login
           </button>
