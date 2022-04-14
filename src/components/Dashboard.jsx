@@ -1,25 +1,23 @@
 import React from "react";
-import nav from "../sass/layout/navBar.module.scss";
-import imgRick from "../assets/Rick_and_Morty.webp";
+import { NavBar } from "./nav/NavBar";
+import { Routes, Route } from "react-router-dom";
+import { Episodes } from "./Episodes";
+import { Characteres } from "./Characteres";
+import { Locations } from "./Locations";
+import { Search } from "./Search";
+import { Inicio } from "./Inicio";
 
-export const Dashboard = () => {
+export const DashBoard = () => {
   return (
-    <div>
-      <nav className={`${nav.nav}`}>
-        <div>
-          <img className={nav.nav__imgRick} src={imgRick} alt="" />
-        </div>
-
-        <div className={nav.nav__nav}>
-          <div className={nav.nav__item}>inicio</div>
-          <div className={nav.nav__item}>Episodes</div>
-          <div className={nav.nav__item}>Characteres</div>
-          <div className={nav.nav__item}>locations</div>
-          <div className={nav.nav__item}>Search</div>
-        </div>
-
-        <div className={`${nav.nav__item} ${nav.nav__item_search}`}>logout</div>
-      </nav>
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+          <Route path="inicio" element={<Inicio/>}/>
+        <Route path="episodes" element={<Episodes />} />
+        <Route path="characteres" element={<Characteres />} />
+        <Route path="locations" element={<Locations />} />
+        <Route path="search" element={<Search />} />
+      </Routes>
+    </>
   );
 };

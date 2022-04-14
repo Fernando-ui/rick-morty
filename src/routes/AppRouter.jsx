@@ -1,15 +1,15 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import { Dashboard } from "../components/Dashboard";
+import { Routes, Route } from "react-router-dom";
+import { DashBoard } from "../components/DashBoard";
 import { Login } from "../components/Login";
 
 export const AppRouter = () => {
   return (
     <div>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/*" element={<DashBoard/>} />
+      </Routes>
     </div>
   );
 };
