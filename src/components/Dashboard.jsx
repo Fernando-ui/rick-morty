@@ -5,14 +5,14 @@ import { Episodes } from "./Episodes";
 import { Characteres } from "./Characteres";
 import { Locations } from "./Locations";
 import { Search } from "./Search";
-import { Inicio } from "./Inicio";
+import { Home } from "./Home";
 
 export const DashBoard = () => {
   return (
     <>
       <NavBar />
       <Routes>
-          <Route path="inicio" element={<Inicio/>}/>
+          <Route path="home" element={<Home/>}/>
         <Route path="episodes" element={<Episodes />} />
         <Route path="characteres" element={<Characteres />} />
         <Route path="locations" element={<Locations />} />

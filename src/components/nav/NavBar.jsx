@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link  } from "react-router-dom";
 
 import nav from "../../sass/layout/navBar.module.scss";
 import imgRick from "../../assets/Rick_and_Morty.webp";
@@ -7,14 +7,14 @@ import imgRick from "../../assets/Rick_and_Morty.webp";
 export const NavBar = () => {
   return (
     <nav className={`${nav.nav}`}>
-      <Link to="inicio">
+      <Link to="home">
         <div>
           <img className={nav.nav__imgRick} src={imgRick} alt="" />
         </div>
       </Link>
       <div className={nav.nav__nav}>
-        <Link  to="/inicio">
-          <div className={nav.nav__item}>inicio</div>
+        <Link  to="/home">
+          <div className={nav.nav__item}>home</div>
         </Link>
         <Link  to="/episodes">
           <div className={nav.nav__item}>Episodes</div>
