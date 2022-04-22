@@ -6,13 +6,15 @@ import { Characteres } from "./Characteres";
 import { Locations } from "./Locations";
 import { Search } from "./Search";
 import { Home } from "./Home";
+import { CharacterEpisode } from "./CharacterEpisode";
 
 export const DashBoard = () => {
   return (
     <>
       <NavBar />
       <Routes>
-          <Route path="home" element={<Home/>}/>
+        <Route path="home" element={<Home />} />
+        <Route path="home/:character" element={<CharacterEpisode />} />
         <Route path="episodes" element={<Episodes />} />
         <Route path="characteres" element={<Characteres />} />
         <Route path="locations" element={<Locations />} />
