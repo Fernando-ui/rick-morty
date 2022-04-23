@@ -11,6 +11,7 @@
     overflow-x: auto;
     height:100%;
     padding:0rem 6rem;
+    z-index:400;
     &__slider {
       width: calc(33rem * 20);
       display: flex;

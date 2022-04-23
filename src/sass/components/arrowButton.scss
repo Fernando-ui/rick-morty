@@ -1,0 +1,26 @@
+.container{
+    &__arrow{
+        position:absolute;
+        background-color:var(--color-fourth);
+        width:4.5rem;
+        height:4.5rem;
+        border-radius:50%;
+        opacity:.5;
+        transition:opacity .5s ease;
+        z-index:500;
+        fill:#fff;
+        &:hover{
+            opacity:.8;
+            cursor:pointer;
+
+        }
+        &-left{
+            transform:rotate(180deg);
+            margin-left:.5rem;
+        }
+       
+        &-right{
+            left:calc(100% - 5.5rem);
+        }
+    }
+}
