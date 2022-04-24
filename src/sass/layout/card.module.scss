@@ -8,13 +8,14 @@
     transform: scale(1.05);
   }
   &__container {
-    overflow-x: auto;
+    overflow-x: hidden;
     height:100%;
     padding:0rem 6rem;
     z-index:400;
     &__slider {
       width: calc(33rem * 20);
       display: flex;
+      margin-left:0rem;
     }
   }
   &__name {

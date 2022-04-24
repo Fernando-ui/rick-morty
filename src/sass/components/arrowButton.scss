@@ -1,11 +1,11 @@
 .container{
+    
     &__arrow{
         position:absolute;
         background-color:var(--color-fourth);
         width:4.5rem;
         height:4.5rem;
         border-radius:50%;
-        opacity:.5;
         transition:opacity .5s ease;
         z-index:500;
         fill:#fff;

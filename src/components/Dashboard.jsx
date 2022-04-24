@@ -14,7 +14,7 @@ export const DashBoard = () => {
       <NavBar />
       <Routes>
         <Route path="home" element={<Home />} />
-        <Route path="home/:character" element={<CharacterEpisode />} />
+        <Route path="home/character/:character" element={<CharacterEpisode />} />
         <Route path="episodes" element={<Episodes />} />
         <Route path="characteres" element={<Characteres />} />
         <Route path="locations" element={<Locations />} />
