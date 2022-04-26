@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import { CardEpisodes } from "./episodes/CardEpisodes";
 import HomeLayout from "../sass/layout/Inicio.module.scss";
 
@@ -6,16 +6,32 @@ import "../sass/components/arrowButton.scss";
 
 export const Episodes = () => {
   const [move, setMove] = useState(0);
+  const [page, setPage] = useState(1);
+
   const handleMove = (e) => {
     const clase = e.target.classList[0];
     if (clase === "container__button-left") {
+      if (move >= -1.42) {
+        return;
+      }
       setMove(move + 33.1);
     } else {
+      if (move <= -562.7) {
+        //TODO Reiniciar el contador de transform, los estilos
+        //TODO Reiniciar y mandar el estilo al principio
+        //TODO Revisar si se hace bien la suma de la url
+        //TODO colocar animacino de carga la siguiente
+        //TODO Poner en donde van las paginas para que la persona ubique en que pagina se encuentra
+        //TODO Guardar en que enpaginacion estamos en el session storageo en redux
+        setPage(page + 1);
+        setMove(-33.1);
+
+        return;
+      }
       setMove(move - 33.1);
     }
   };
-  console.log(move,'Move');
-  
+
   return (
     <>
       <div
@@ -44,7 +60,7 @@ export const Episodes = () => {
               ></path>
             </svg>
           </div>
-          <CardEpisodes url={"episode"} move={move}/>
+          <CardEpisodes url={page} move={move} />
           <div className="container__arrow container__arrow-right">
             <svg
               onClick={(e) => handleMove(e)}

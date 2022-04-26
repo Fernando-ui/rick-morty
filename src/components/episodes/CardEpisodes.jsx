@@ -5,19 +5,22 @@ import card from "../../sass/layout/card.module.scss";
 
 export const CardEpisodes = ({ url, move }) => {
   const [episodes, setEpisodes] = useState([]);
-  console.log(move, "Tenemos move desde el componente card");
   const slidderMove = {
+    transition:'transform .5s ease',
     transform:`translateX(${move}rem)`,
   };
   useEffect(() => {
     getEpisodes();
-  }, []);
-
+  }, [url]);
+  
   const getEpisodes = async () => {
     const { results } = await fetchGet(
-      `https://rickandmortyapi.com/api/${url}`
+      `https://rickandmortyapi.com/api/location/?page=${url}`
     );
     setEpisodes(results);
+
+    console.log(url,'Tenemos la url desde la funcion que las traee');
+    
   };
 
   return (
