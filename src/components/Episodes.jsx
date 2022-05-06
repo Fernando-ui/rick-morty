@@ -10,25 +10,20 @@ export const Episodes = () => {
 
   const handleMove = (e) => {
     const clase = e.target.classList[0];
+    
     if (clase === "container__button-left") {
       if (move >= -1.42) {
         return;
       }
-      setMove(move + 33.1);
+      setMove(move + 25);
     } else {
-      if (move <= -562.7) {
-        //TODO Reiniciar el contador de transform, los estilos
-        //TODO Reiniciar y mandar el estilo al principio
-        //TODO Revisar si se hace bien la suma de la url
-        //TODO colocar animacino de carga la siguiente
-        //TODO Poner en donde van las paginas para que la persona ubique en que pagina se encuentra
-        //TODO Guardar en que enpaginacion estamos en el session storageo en redux
+      if (move <= -25*20) {
         setPage(page + 1);
-        setMove(-33.1);
+        setMove(0);
 
         return;
       }
-      setMove(move - 33.1);
+      setMove(move - 25);
     }
   };
 

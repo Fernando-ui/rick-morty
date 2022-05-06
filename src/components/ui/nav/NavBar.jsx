@@ -1,8 +1,8 @@
 import React from "react";
 import { Link  } from "react-router-dom";
 
-import nav from "../../sass/layout/navBar.module.scss";
-import imgRick from "../../assets/Rick_and_Morty.webp";
+import nav from "../../../sass/layout/navBar.module.scss";
+import imgRick from "../../../assets/Rick_and_Morty.webp";
 
 export const NavBar = () => {
   return (

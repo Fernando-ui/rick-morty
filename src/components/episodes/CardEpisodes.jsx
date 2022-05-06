@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchGet } from "../../helpers/postFetch";
 import { Link } from "react-router-dom";
 import card from "../../sass/layout/card.module.scss";
+import { Soggy } from "../ui/Soggy";
 
 export const CardEpisodes = ({ url, move }) => {
   const [episodes, setEpisodes] = useState([]);
@@ -18,9 +19,6 @@ export const CardEpisodes = ({ url, move }) => {
       `https://rickandmortyapi.com/api/location/?page=${url}`
     );
     setEpisodes(results);
-
-    console.log(url,'Tenemos la url desde la funcion que las traee');
-    
   };
 
   return (
@@ -42,6 +40,7 @@ export const CardEpisodes = ({ url, move }) => {
             );
           })}
         </div>
+       <Soggy currentPage={url}/>
       </div>
     </>
   );

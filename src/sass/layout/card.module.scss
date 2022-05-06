@@ -13,9 +13,10 @@
     padding:0rem 6rem;
     z-index:400;
     &__slider {
-      width: calc(33rem * 20);
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(21, 1fr);
       margin-left:0rem;
+
     }
   }
   &__name {

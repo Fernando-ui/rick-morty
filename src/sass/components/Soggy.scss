@@ -1,0 +1,15 @@
+.soggy {
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+  &__current {
+    color: #fff;
+    cursor: pointer;
+    &-active {
+      color: var(--color-fourth);
+    }
+    & span {
+      margin-left: 1rem;
+    }
+  }
+}
