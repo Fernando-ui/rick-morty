@@ -1,3 +1,5 @@
 export const ACTIONS = {
-    SAVEPAGE:'[PAGE] savePage',
+    ADDPAGE:'[PAGE] addPage',
+    SUBTRACTPAGE:'[PAGE] subtractPage',
+    CHANGEPAGE:'[PAGE] changePage',
 }

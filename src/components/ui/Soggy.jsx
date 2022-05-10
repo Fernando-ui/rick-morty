@@ -1,10 +1,14 @@
-import { useState } from "react";
 import "../../sass/components/Soggy.scss";
+import { useDispatch } from "react-redux";
+import { ACTIONS } from "../../actions/Actions";
 
 export const Soggy = ({ currentPage }) => {
+  const dispatch = useDispatch();
   const handleGetNumber = (e) => {
     const numberOfPage =
       e.target.classList[0][e.target.classList[0].length - 1];
+    console.log(numberOfPage, "Tenemos el numero de pagina");
+    dispatch({ type: ACTIONS.CHANGEPAGE, payload: numberOfPage });
   };
 
   return (

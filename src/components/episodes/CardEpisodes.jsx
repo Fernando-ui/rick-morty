@@ -1,10 +1,15 @@
+import {useSelector} from 'react-redux';
 import { useEffect, useState } from "react";
-import { fetchGet } from "../../helpers/postFetch";
 import { Link } from "react-router-dom";
-import card from "../../sass/layout/card.module.scss";
+
+import { fetchGet } from "../../helpers/postFetch";
 import { Soggy } from "../ui/Soggy";
+import card from "../../sass/layout/card.module.scss";
 
 export const CardEpisodes = ({ url, move }) => {
+  const {page:{page}} = useSelector(state => state);
+  console.log(page,'Tenemos el state');
+  
   const [episodes, setEpisodes] = useState([]);
   const slidderMove = {
     transition:'transform .5s ease',
