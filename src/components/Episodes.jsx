@@ -1,13 +1,14 @@
 import { useState } from "react";
+import {useDispatch} from 'react-redux';
 import { CardEpisodes } from "./episodes/CardEpisodes";
 import HomeLayout from "../sass/layout/Inicio.module.scss";
-
 import "../sass/components/arrowButton.scss";
+import { ACTIONS } from "../actions/Actions";
+
 
 export const Episodes = () => {
   const [move, setMove] = useState(0);
-  const [page, setPage] = useState(1);
-
+  const dispatch = useDispatch();
   const handleMove = (e) => {
     const clase = e.target.classList[0];
     
@@ -18,9 +19,8 @@ export const Episodes = () => {
       setMove(move + 25);
     } else {
       if (move <= -25*20) {
-        setPage(page + 1);
+        dispatch({type: ACTIONS.ADDPAGE});
         setMove(0);
-
         return;
       }
       setMove(move - 25);
@@ -55,7 +55,7 @@ export const Episodes = () => {
               ></path>
             </svg>
           </div>
-          <CardEpisodes url={page} move={move} />
+          <CardEpisodes move={move} />
           <div className="container__arrow container__arrow-right">
             <svg
               onClick={(e) => handleMove(e)}

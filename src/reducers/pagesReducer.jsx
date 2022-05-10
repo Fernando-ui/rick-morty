@@ -1,8 +1,9 @@
 
 import { ACTIONS } from "../actions/Actions";
+import { fetchGet } from "../helpers/postFetch";
 
 const initialState = {
-  page: 1,
+  page:'1',
 };
 //TODO  Aplicar el thunk para hacer la peticion de la api
 export const pageReducer = (state = initialState, action) => {
@@ -27,5 +28,10 @@ export const pageReducer = (state = initialState, action) => {
   }
 };
 export const fetchAPIRickMorty = (currentPage) => {
-
+  return (dispatch)=>{
+    fetchGet(`https://rickandmortyapi.com/api/location/?page=${currentPage}`)
+    dispatch({type: ACTIONS.CHANGEPAGE, payload: currentPage});
+    
+    
+  }
 }

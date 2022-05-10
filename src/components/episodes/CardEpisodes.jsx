@@ -6,22 +6,22 @@ import { fetchGet } from "../../helpers/postFetch";
 import { Soggy } from "../ui/Soggy";
 import card from "../../sass/layout/card.module.scss";
 
-export const CardEpisodes = ({ url, move }) => {
+export const CardEpisodes = ({ move }) => {
   const {page:{page}} = useSelector(state => state);
-  console.log(page,'Tenemos el state');
-  
   const [episodes, setEpisodes] = useState([]);
+
   const slidderMove = {
     transition:'transform .5s ease',
     transform:`translateX(${move}rem)`,
   };
+  
   useEffect(() => {
     getEpisodes();
-  }, [url]);
+  }, [page]);
   
   const getEpisodes = async () => {
     const { results } = await fetchGet(
-      `https://rickandmortyapi.com/api/location/?page=${url}`
+      `https://rickandmortyapi.com/api/location/?page=${+page}`
     );
     setEpisodes(results);
   };
@@ -45,7 +45,7 @@ export const CardEpisodes = ({ url, move }) => {
             );
           })}
         </div>
-       <Soggy currentPage={url}/>
+       <Soggy />
       </div>
     </>
   );

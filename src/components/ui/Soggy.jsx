@@ -1,24 +1,29 @@
 import "../../sass/components/Soggy.scss";
-import { useDispatch } from "react-redux";
-import { ACTIONS } from "../../actions/Actions";
+import { useDispatch, useSelector } from "react-redux";
 
-export const Soggy = ({ currentPage }) => {
+import { fetchAPIRickMorty } from "../../reducers/pagesReducer";
+
+export const Soggy = () => {
+  const {page:{page}} = useSelector( state => state);
   const dispatch = useDispatch();
+
   const handleGetNumber = (e) => {
     const numberOfPage =
       e.target.classList[0][e.target.classList[0].length - 1];
-    console.log(numberOfPage, "Tenemos el numero de pagina");
-    dispatch({ type: ACTIONS.CHANGEPAGE, payload: numberOfPage });
+    console.log(numberOfPage,'Tenemos el numero de la pagina desde el clcki');
+    
+    dispatch(fetchAPIRickMorty(numberOfPage));
   };
-
+  console.log(page,'Estamos en esta pagina');
+  
   return (
     <>
       <div className="soggy">
         <span className="soggy__current">
           <span
             onClick={(e) => handleGetNumber(e)}
-            className={`soggy__current ${
-              currentPage === 1 ? "soggy__current-active" : ""
+            className={`soggy__current-1 ${
+              page === '1' ? "soggy__current-active" : ""
             }`}
           >
             1
@@ -26,7 +31,7 @@ export const Soggy = ({ currentPage }) => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-2 ${
-              currentPage === 2 ? "soggy__current-active" : ""
+              page === '2' ? "soggy__current-active" : ""
             }`}
           >
             2
@@ -34,7 +39,7 @@ export const Soggy = ({ currentPage }) => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-3 ${
-              currentPage === 3 ? "soggy__current-active" : ""
+              page === '3' ? "soggy__current-active" : ""
             }`}
           >
             3
@@ -42,7 +47,7 @@ export const Soggy = ({ currentPage }) => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-4 ${
-              currentPage === 4 ? "soggy__current-active" : ""
+              page === '4' ? "soggy__current-active" : ""
             }`}
           >
             4
@@ -50,7 +55,7 @@ export const Soggy = ({ currentPage }) => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-5 ${
-              currentPage === 5 ? "soggy__current-active" : ""
+              page === '5' ? "soggy__current-active" : ""
             }`}
           >
             5
@@ -58,7 +63,7 @@ export const Soggy = ({ currentPage }) => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-6 ${
-              currentPage === 6 ? "soggy__current-active" : ""
+              page === '6' ? "soggy__current-active" : ""
             }`}
           >
             6
@@ -66,7 +71,7 @@ export const Soggy = ({ currentPage }) => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-7 ${
-              currentPage === 7 ? "soggy__current-active" : ""
+              page === '7' ? "soggy__current-active" : ""
             }`}
           >
             7
