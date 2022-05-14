@@ -1,6 +1,6 @@
-import HomeLayout from "../sass/layout/Inicio.module.scss";
-import "../sass/components/arrowButton.scss";
-import { Episodes } from "./Episodes";
+import HomeLayout from "../../sass/layout/Inicio.module.scss";
+import "../../sass/components/arrowButton.scss";
+import { Episodes } from "../episodes/EpisodesScreen";
 
 export const Home = () => {
   return (

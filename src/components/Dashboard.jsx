@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { NavBar } from "./ui/nav/NavBar";
-import { Episodes } from "../screens/Episodes";
-import { Characteres } from "./characteres/Characteres";
-import { Locations } from "./Locations/Locations";
-import { Search } from "./search/Search";
-import { Home } from "../screens/Home";
+import { Episodes } from "./episodes/EpisodesScreen";
+import { Characteres } from "./characteres/CharacteresScreen";
+import { Locations } from "./Locations/LocationsScreen";
+import { Search } from "./search/SearchScreen";
+import { Home } from "./home/HomeScreen";
 import { CharacterEpisode } from "./CharacterEpisode";
 
 export const DashBoard = () => {

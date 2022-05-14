@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { DashBoard } from "../components/DashBoard";
-import { Login } from "../screens/Login";
+import { Login } from "../components/login/LoginScreen";
 
 export const AppRouter = () => {
   return (

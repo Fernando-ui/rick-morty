@@ -1,10 +1,10 @@
 import { useState } from "react";
 import {useDispatch} from 'react-redux';
 
-import { CardEpisodes } from "../components/episodes/CardEpisodes";
-import HomeLayout from "../sass/layout/Inicio.module.scss";
-import "../sass/components/arrowButton.scss";
-import { ACTIONS } from "../actions/Actions";
+import { CardEpisodes } from "./CardEpisodesScreen";
+import HomeLayout from "../../sass/layout/Inicio.module.scss";
+import "../../sass/components/arrowButton.scss";
+import { ACTIONS } from "../../actions/Actions";
 
 
 export const Episodes = () => {

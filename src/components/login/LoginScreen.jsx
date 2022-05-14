@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import imagen from "../sass/components/imageLogin.module.scss";
-import card from "../sass/layout/login.module.scss";
-import button from "../sass/components/button.module.scss";
-import "../sass/abstract/variables.module.scss";
-
 import { useNavigate } from "react-router-dom";
-import { useForm } from "../hooks/useForm";
+
+import { useForm } from "../../hooks/useForm";
+
+import imagen from "../../sass/components/imageLogin.module.scss";
+import card from "../../sass/layout/login.module.scss";
+import button from "../../sass/components/button.module.scss";
+import "../..//sass/abstract/variables.module.scss";
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ export const Login = () => {
   const { user, password } = values;
   const handleDashboard = (e) => {
     if (user.length > 1 && password.length > 1) {
-      sessionStorage.setItem('user',JSON.stringify({user,password}))
+      sessionStorage.setItem("user", JSON.stringify({ user, password }));
       navigate("/home");
       return;
     }
