@@ -1,20 +1,19 @@
-import "../../sass/components/Soggy.scss";
 import { useDispatch, useSelector } from "react-redux";
 
+import "../../sass/components/Soggy.scss";
 import { fetchAPIRickMorty } from "../../reducers/pagesReducer";
 
 export const Soggy = () => {
   const {page:{page}} = useSelector( state => state);
+  const paginaSeleccionada = +page;
   const dispatch = useDispatch();
 
   const handleGetNumber = (e) => {
     const numberOfPage =
       e.target.classList[0][e.target.classList[0].length - 1];
-    console.log(numberOfPage,'Tenemos el numero de la pagina desde el clcki');
     
     dispatch(fetchAPIRickMorty(numberOfPage));
   };
-  console.log(page,'Estamos en esta pagina');
   
   return (
     <>
@@ -23,7 +22,7 @@ export const Soggy = () => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-1 ${
-              page === '1' ? "soggy__current-active" : ""
+              paginaSeleccionada === 1 ? "soggy__current-active" : ""
             }`}
           >
             1
@@ -31,7 +30,7 @@ export const Soggy = () => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-2 ${
-              page === '2' ? "soggy__current-active" : ""
+              paginaSeleccionada === 2 ? "soggy__current-active" : ""
             }`}
           >
             2
@@ -39,7 +38,7 @@ export const Soggy = () => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-3 ${
-              page === '3' ? "soggy__current-active" : ""
+              paginaSeleccionada === 3 ? "soggy__current-active" : ""
             }`}
           >
             3
@@ -47,7 +46,7 @@ export const Soggy = () => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-4 ${
-              page === '4' ? "soggy__current-active" : ""
+              paginaSeleccionada === 4 ? "soggy__current-active" : ""
             }`}
           >
             4
@@ -55,7 +54,7 @@ export const Soggy = () => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-5 ${
-              page === '5' ? "soggy__current-active" : ""
+              paginaSeleccionada === 5 ? "soggy__current-active" : ""
             }`}
           >
             5
@@ -63,7 +62,7 @@ export const Soggy = () => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-6 ${
-              page === '6' ? "soggy__current-active" : ""
+              paginaSeleccionada === 6 ? "soggy__current-active" : ""
             }`}
           >
             6
@@ -71,7 +70,7 @@ export const Soggy = () => {
           <span
             onClick={(e) => handleGetNumber(e)}
             className={`soggy__current-7 ${
-              page === '7' ? "soggy__current-active" : ""
+              paginaSeleccionada === 7 ? "soggy__current-active" : ""
             }`}
           >
             7

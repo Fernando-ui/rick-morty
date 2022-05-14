@@ -21,6 +21,12 @@ body {
   box-sizing: border-box;
   min-height: 100vh;
   margin:0;
+  background-image: url("https://res.cloudinary.com/fersan/image/upload/v1649897681/c6jep6hvaphnoufeltw8.jpg");
+    min-height:calc(100vh - 4.5rem);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 label{
   display:block;

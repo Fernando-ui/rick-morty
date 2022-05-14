@@ -1,11 +1,12 @@
 import React from "react";
-import { NavBar } from "./ui/nav/NavBar";
 import { Routes, Route } from "react-router-dom";
-import { Episodes } from "./Episodes";
-import { Characteres } from "./Characteres";
-import { Locations } from "./Locations";
-import { Search } from "./Search";
-import { Home } from "./Home";
+
+import { NavBar } from "./ui/nav/NavBar";
+import { Episodes } from "../screens/Episodes";
+import { Characteres } from "./characteres/Characteres";
+import { Locations } from "./Locations/Locations";
+import { Search } from "./search/Search";
+import { Home } from "../screens/Home";
 import { CharacterEpisode } from "./CharacterEpisode";
 
 export const DashBoard = () => {

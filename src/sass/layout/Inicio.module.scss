@@ -6,13 +6,13 @@
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    color:#fff;
     padding-bottom:5.5rem;
     &__locations{
         background-color:var(--color-nav);
         height:63vh;
         display:inline-block;
         width:100%;
+        color:#fff;
         &:not(:last-child){
             margin-bottom:5rem;
         }
