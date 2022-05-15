@@ -1,26 +1,25 @@
 import { useState } from "react";
-import {useDispatch} from 'react-redux';
+import { useDispatch } from "react-redux";
 
 import { CardEpisodes } from "./CardEpisodesScreen";
 import HomeLayout from "../../sass/layout/Inicio.module.scss";
 import "../../sass/components/arrowButton.scss";
 import { ACTIONS } from "../../actions/Actions";
 
-
 export const Episodes = () => {
   const [move, setMove] = useState(0);
   const dispatch = useDispatch();
   const handleMove = (e) => {
     const clase = e.target.classList[0];
-    
+
     if (clase === "container__button-left") {
       if (move >= -1.42) {
         return;
       }
       setMove(move + 25);
     } else {
-      if (move <= -25*20) {
-        dispatch({type: ACTIONS.ADDPAGE});
+      if (move <= -25 * 20) {
+        dispatch({ type: ACTIONS.ADDPAGE });
         setMove(0);
         return;
       }
