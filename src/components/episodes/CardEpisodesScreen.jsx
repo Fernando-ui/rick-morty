@@ -10,7 +10,6 @@ export const CardEpisodes = ({ move }) => {
     page: { page },
   } = useSelector((state) => state);
   const [episodes, setEpisodes] = useState([]);
-  console.log(episodes, "Tenemos los episodes");
 
   const slidderMove = {
     transition: "transform .5s ease",
@@ -32,9 +31,7 @@ export const CardEpisodes = ({ move }) => {
     <>
       <div className={` ${card.card__container}`}>
         <div style={slidderMove} className={`${card.card__container__slider}`}>
-          {episodes.map(({ name, created, air_date, id, episode }) => {
-            console.log(name, created, air_date, id, episode);
-            
+          {episodes.map(({ name, created, air_date, id, episode }) => {           
             return (
               <div key={id} className={`${card.card}`}>
                 <div className={card.card__characters}>
