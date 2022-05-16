@@ -4,17 +4,19 @@ import "../../sass/components/Soggy.scss";
 import { fetchAPIRickMorty } from "../../reducers/pagesReducer";
 
 export const Soggy = () => {
-  const {page:{page}} = useSelector( state => state);
+  const {
+    page: { page },
+  } = useSelector((state) => state);
   const paginaSeleccionada = +page;
   const dispatch = useDispatch();
 
   const handleGetNumber = (e) => {
     const numberOfPage =
       e.target.classList[0][e.target.classList[0].length - 1];
-    
+
     dispatch(fetchAPIRickMorty(numberOfPage));
   };
-  
+
   return (
     <>
       <div className="soggy">
@@ -42,38 +44,6 @@ export const Soggy = () => {
             }`}
           >
             3
-          </span>
-          <span
-            onClick={(e) => handleGetNumber(e)}
-            className={`soggy__current-4 ${
-              paginaSeleccionada === 4 ? "soggy__current-active" : ""
-            }`}
-          >
-            4
-          </span>
-          <span
-            onClick={(e) => handleGetNumber(e)}
-            className={`soggy__current-5 ${
-              paginaSeleccionada === 5 ? "soggy__current-active" : ""
-            }`}
-          >
-            5
-          </span>
-          <span
-            onClick={(e) => handleGetNumber(e)}
-            className={`soggy__current-6 ${
-              paginaSeleccionada === 6 ? "soggy__current-active" : ""
-            }`}
-          >
-            6
-          </span>
-          <span
-            onClick={(e) => handleGetNumber(e)}
-            className={`soggy__current-7 ${
-              paginaSeleccionada === 7 ? "soggy__current-active" : ""
-            }`}
-          >
-            7
           </span>
         </span>
       </div>

@@ -29,17 +29,31 @@
   }
   &__created,
   &__characters,
-  &__date {
+  &__data {
     font-size: 1.5rem;
     margin: 0.5rem 0rem;
     display: block;
     text-transform: capitalize;
   }
+  &__container__data {
+    font-size: 1.5rem;
+    margin: 0.5rem 0rem;
+    display: block;
+    text-transform: capitalize;
+    text-align: center;
+  }
   &__characters_text {
     color: var(--color-primary);
     margin-top: 0.5rem;
   }
-  &__description{
+  &__description {
     font-weight: 800;
+  }
+  &__image {
+    margin-top: 1rem;
+
+    @media screen and (max-width: 1600px) {
+      width: 20rem;
+    }
   }
 }

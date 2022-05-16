@@ -22,7 +22,6 @@ export const CardEpisodes = () => {
           {characters.map(
             ({
               created,
-              episode,
               gender,
               image,
               location,
@@ -42,38 +41,38 @@ export const CardEpisodes = () => {
                       </span>
                       {gender}
                     </div>
-                    <div className={card.card__created}>
+                    <div className={card.card__data}>
                       <span className={`${card.card__description}`}>
                         created:
                       </span>
                       {created}
                     </div>
-                    <div className={card.card__date}>
+                    <div className={card.card__data}>
                       <span className={`${card.card__description}`}>
                         location:
                       </span>
                       {location.name}
                     </div>
-                    <div className={card.card__date}>
+                    <div className={card.card__data}>
                       <span className={`${card.card__description}`}>
                         origin:
                       </span>
                       {origin.name}
                     </div>
-                    <div className={card.card__date}>
+                    <div className={card.card__data}>
                       <span className={`${card.card__description}`}>
                         species:
                       </span>
                       {species}
                     </div>
-                    <div className={card.card__date}>
+                    <div className={card.card__data}>
                       <span className={`${card.card__description}`}>
                         status:
                       </span>
                       {status}
                     </div>
-                    <div className={card.card__date}>
-                      <img src={image} alt="" />
+                    <div className={`${card.card__container__data}`}>
+                      <img className={` ${card.card__image}`} src={image} alt={name} />
                     </div>
                   </div>
                 </div>
