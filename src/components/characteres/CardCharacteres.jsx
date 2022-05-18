@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchGet } from "../../helpers/postFetch";
 import card from "../../sass/layout/card.module.scss";
 
-export const CardEpisodes = () => {
+export const CardCharacteres = ({move}) => {
   const [characters, setCharacters] = useState([]);
   const getCharacteres = async () => {
     const { results } = await fetchGet(
@@ -13,12 +13,14 @@ export const CardEpisodes = () => {
   useEffect(() => {
     getCharacteres();
   }, []);
-  console.log(characters);
-
+  const slidderMove = {
+    transition: "transform .5s ease",
+    transform: `translateX(${move}rem)`,
+  };
   return (
     <>
       <div className={` ${card.card__container}`}>
-        <div className={`${card.card__container__slider}`}>
+        <div style={slidderMove} className={`${card.card__container__slider}`}>
           {characters.map(
             ({
               created,

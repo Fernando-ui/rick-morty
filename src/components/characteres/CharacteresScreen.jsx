@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import HomeLayout from "../../sass/layout/Inicio.module.scss";
 import "../../sass/components/arrowButton.scss";
 import { ACTIONS } from "../../actions/Actions";
-import { CardEpisodes } from "./CardEpisodes";
+import { CardCharacteres } from "./CardCharacteres";
 
 export const Characteres = () => {
   const [move, setMove] = useState(0);
@@ -55,7 +55,7 @@ export const Characteres = () => {
               ></path>
             </svg>
           </div>
-          <CardEpisodes/>
+          <CardCharacteres move={move}/>
           <div className="container__arrow container__arrow-right">
             <svg
               onClick={(e) => handleMove(e)}
