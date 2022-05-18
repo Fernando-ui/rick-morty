@@ -1,6 +1,7 @@
 import { createStore, combineReducers, compose, applyMiddleware } from "redux";
-import { pageReducer } from "../reducers/pagesReducer";
 import thunk from "redux-thunk";
+import { pageReducer } from "../reducers/pagesReducer";
+import { CharacteresReducer } from "../reducers/CharacteresReducer";
 
 const composeEnhancers =
   (typeof window !== "undefined" &&
@@ -9,6 +10,7 @@ const composeEnhancers =
 
 const reducers = combineReducers({
   page: pageReducer,
+  characteresPage:CharacteresReducer
 });
 
 export const store = createStore(
