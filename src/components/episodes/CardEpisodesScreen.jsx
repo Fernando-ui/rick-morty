@@ -10,6 +10,7 @@ export const CardEpisodes = ({ move }) => {
     page: { page },
   } = useSelector((state) => state);
   const [episodes, setEpisodes] = useState([]);
+  const [totalOfPages, setTotalOfPages] = useState(0);
 
   const slidderMove = {
     transition: "transform .5s ease",
@@ -21,24 +22,27 @@ export const CardEpisodes = ({ move }) => {
   }, [page]);
 
   const getEpisodes = async () => {
-    const { results } = await fetchGet(
+    const { results, info } = await fetchGet(
       `https://rickandmortyapi.com/api/episode/?page=${+page}`
     );
+
     setEpisodes(results);
+    setTotalOfPages(info.pages);
+    
   };
 
   return (
     <>
       <div className={` ${card.card__container}`}>
         <div style={slidderMove} className={`${card.card__container__slider}`}>
-          {episodes.map(({ name, created, air_date, id, episode }) => {           
+          {episodes.map(({ name, created, air_date, id, episode }) => {
             return (
               <div key={id} className={`${card.card}`}>
                 <div className={card.card__characters}>
                   <div className={card.card__name}>{name}</div>
                   <div>
                     <span className={`${card.card__description}`}>
-                      Episode: 
+                      Episode:
                     </span>
                     {episode}
                   </div>
@@ -55,15 +59,14 @@ export const CardEpisodes = ({ move }) => {
                     {air_date}
                   </div>
                   <div>
-                    <span>
-                    </span>
+                    <span></span>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <Soggy />
+        <Soggy numberOfPages={totalOfPages}/>
       </div>
     </>
   );

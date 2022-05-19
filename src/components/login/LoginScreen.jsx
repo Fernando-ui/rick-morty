@@ -35,7 +35,7 @@ export const Login = () => {
             <label htmlFor="userName">User</label>
             <input
               className={`${card.card__login}`}
-              type="text"
+              type="email"
               name="user"
               value={user}
               required={true}

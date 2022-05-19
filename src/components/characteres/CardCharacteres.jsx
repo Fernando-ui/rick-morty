@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { fetchGet } from "../../helpers/postFetch";
 import card from "../../sass/layout/card.module.scss";
+import { Soggy } from "../ui/Soggy";
 
-export const CardCharacteres = ({move}) => {
+export const CardCharacteres = ({ move }) => {
   const [characters, setCharacters] = useState([]);
+  const [totalOfPages, settotalOfPages] = useState(0)
   const getCharacteres = async () => {
-    const { results } = await fetchGet(
+    const { results, info } = await fetchGet(
       `https://rickandmortyapi.com/api/character`
     );
     setCharacters(results);
+    settotalOfPages(info.pages);
   };
   useEffect(() => {
     getCharacteres();
@@ -74,14 +77,22 @@ export const CardCharacteres = ({move}) => {
                       {status}
                     </div>
                     <div className={`${card.card__container__data}`}>
-                      <img className={` ${card.card__image}`} src={image} alt={name} />
+                      <img
+                        className={` ${card.card__image}`}
+                        src={image}
+                        alt={name}
+                      />
                     </div>
+                    
                   </div>
+                  
                 </div>
+                
               );
             }
           )}
         </div>
+        <Soggy numberOfPages={totalOfPages}/>
       </div>
     </>
   );

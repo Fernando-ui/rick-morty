@@ -51,9 +51,9 @@
   }
   &__image {
     margin-top: 1rem;
-
+    width:27rem;
     @media screen and (max-width: 1600px) {
-      width: 20rem;
+      width: 17rem;
     }
   }
 }

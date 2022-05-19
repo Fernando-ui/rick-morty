@@ -34,3 +34,9 @@ export const fetchAPIRickMorty = (currentPage) => {
     
   }
 }
+
+export const fetchAPICharacteres = (currentPage) => {
+  return(dispatch)=>{
+    
+  }
+}
