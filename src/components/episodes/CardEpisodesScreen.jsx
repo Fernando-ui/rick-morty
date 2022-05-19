@@ -59,7 +59,6 @@ export const CardEpisodes = ({ move }) => {
                     {air_date}
                   </div>
                   <div>
-                    <span></span>
                   </div>
                 </div>
               </div>
