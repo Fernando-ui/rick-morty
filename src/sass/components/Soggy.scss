@@ -3,11 +3,21 @@
   font-size: 1.7rem;
   font-weight: bold;
   padding-bottom: 1rem;
+  position:relative;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  &__container{
+    overflow: hidden;
+    width:6rem;
+    position:relative;
+  }
   &__current {
+    position:relative;
     color: #fff;
     display: inline-block;
-    width: 10rem;
-    overflow: hidden;
+    position:relative;
+    height:3rem;
     cursor: pointer;
     &-active {
       color: var(--color-fourth);
@@ -15,5 +25,31 @@
     & span {
       margin-left: 1rem;
     }
+  }
+  &__buttonArrow{
+    border: 3px solid #41B3CB;
+    width:1.5rem;
+    height:1.5rem;
+    position:absolute;
+    top:0;
+    left:calc(50% - 5rem);
+    cursor:pointer;
+    &__img{
+      text-align: center;
+      margin-top: calc(100% - 16px);
+      & svg{
+        width:.9rem;
+        fill:#fff;
+      }
+    }
+  }
+  &__right-arrow{
+    left:calc(50% - -4rem);
+    
+  }
+  &__buttonRight-rotate{
+    transform-origin:center;
+    transform:rotate(.5turn);
+    
   }
 }
