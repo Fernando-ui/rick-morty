@@ -27,7 +27,6 @@
     }
   }
   &__buttonArrow{
-    border: 3px solid #41B3CB;
     width:1.5rem;
     height:1.5rem;
     position:absolute;
@@ -36,7 +35,7 @@
     cursor:pointer;
     &__img{
       text-align: center;
-      margin-top: calc(100% - 16px);
+      margin-top: calc(100% - 1.3rem);
       & svg{
         width:.9rem;
         fill:#fff;
@@ -47,7 +46,7 @@
     left:calc(50% - -4rem);
     
   }
-  &__buttonRight-rotate{
+  &__buttonArrow-right{
     transform-origin:center;
     transform:rotate(.5turn);
     

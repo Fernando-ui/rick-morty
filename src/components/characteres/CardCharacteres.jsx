@@ -20,6 +20,8 @@ export const CardCharacteres = ({ move }) => {
     transition: "transform .5s ease",
     transform: `translateX(${move}rem)`,
   };
+  console.log(card.card__characters,'Tenemos ');
+  
   return (
     <>
       <div className={` ${card.card__container}`}>
@@ -92,7 +94,7 @@ export const CardCharacteres = ({ move }) => {
             }
           )}
         </div>
-        <Soggy numberOfPages={totalOfPages}/>
+        <Soggy numberOfPages={totalOfPages}  typeOfSection="Characteres"/>
       </div>
     </>
   );

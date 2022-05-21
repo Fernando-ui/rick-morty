@@ -65,7 +65,7 @@ export const CardEpisodes = ({ move }) => {
             );
           })}
         </div>
-        <Soggy numberOfPages={totalOfPages}/>
+        <Soggy numberOfPages={totalOfPages}typeOfSection='Episodes'/>
       </div>
     </>
   );
