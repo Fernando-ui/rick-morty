@@ -1,27 +1,29 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { fetchGet } from "../../helpers/postFetch";
 import card from "../../sass/layout/card.module.scss";
 import { Soggy } from "../ui/Soggy";
 
 export const CardCharacteres = ({ move }) => {
+  const {characteresPage:{pageOfCharacteres:page}} = useSelector((state) => state);
   const [characters, setCharacters] = useState([]);
-  const [totalOfPages, settotalOfPages] = useState(0)
+  const [totalOfPages, settotalOfPages] = useState(0);
+
   const getCharacteres = async () => {
     const { results, info } = await fetchGet(
-      `https://rickandmortyapi.com/api/character`
+      `https://rickandmortyapi.com/api/character/?page=${+page}`
     );
     setCharacters(results);
     settotalOfPages(info.pages);
   };
   useEffect(() => {
     getCharacteres();
-  }, []);
+  }, [page]);
   const slidderMove = {
     transition: "transform .5s ease",
     transform: `translateX(${move}rem)`,
   };
-  console.log(card.card__characters,'Tenemos ');
-  
+
   return (
     <>
       <div className={` ${card.card__container}`}>
@@ -85,16 +87,13 @@ export const CardCharacteres = ({ move }) => {
                         alt={name}
                       />
                     </div>
-                    
                   </div>
-                  
                 </div>
-                
               );
             }
           )}
         </div>
-        <Soggy numberOfPages={totalOfPages}  typeOfSection="Characteres"/>
+        <Soggy numberOfPages={totalOfPages} typeOfSection="Characteres" />
       </div>
     </>
   );

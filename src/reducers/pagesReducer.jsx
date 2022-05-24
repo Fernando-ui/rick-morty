@@ -27,6 +27,7 @@ export const pageReducer = (state = initialState, action) => {
   }
 };
 export const fetchAPIRickMorty = (currentPage) => {
+  
   return (dispatch)=>{
     fetchGet(`https://rickandmortyapi.com/api/location/?page=${currentPage}`);
     dispatch({type: ACTIONS.CHANGEPAGE, payload: +currentPage});
@@ -35,8 +36,3 @@ export const fetchAPIRickMorty = (currentPage) => {
   }
 }
 
-export const fetchAPICharacteres = (currentPage) => {
-  return(dispatch)=>{
-    
-  }
-}

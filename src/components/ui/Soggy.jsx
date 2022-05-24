@@ -2,15 +2,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "../../sass/components/Soggy.scss";
 import { fetchAPIRickMorty } from "../../reducers/pagesReducer";
+import { fetchAPICharacteres } from "../../reducers/CharacteresReducer";
 
 export const Soggy = ({ numberOfPages, typeOfSection }) => {
-  const pageSections = ['Characteres','Episodes','Locations'];
-
   const totalOfPages = [];
   for (let i = 1; i <= numberOfPages; i++) {
     totalOfPages.push(i);
   }
- 
+
   const {
     page: { page: paginaSeleccionada },
   } = useSelector((state) => state);
@@ -19,22 +18,28 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
   const handleGetNumber = (e) => {
     const numberOfPage =
       e.target.classList[0][e.target.classList[0].length - 1];
+      console.log(numberOfPage);
+      
+    switch (typeOfSection) {
+      case "Episodes":
+        dispatch(fetchAPIRickMorty(numberOfPage));
 
-    dispatch(fetchAPIRickMorty(numberOfPage));
-    console.log("Dandole click");
+        break;
+      case "Characteres":
+        dispatch(fetchAPICharacteres(numberOfPage));
+        console.log('Entrando al characteres');
+        
+      default:
+      case "Locations":
+        break;
+    }
   };
-  const handleChangeLeftPage = () => {
-    
-  };
-  const handleChangeRightPage = () => {
-    
-  };
+  const handleChangeLeftPage = () => {};
+  const handleChangeRightPage = () => {};
   return (
     <>
       <div className="soggy">
-        {totalOfPages.length <= 3 ? (
-          null
-        ) : (
+        {totalOfPages.length <= 3 ? null : (
           <div
             className="soggy__buttonArrow soggy__left-arrow"
             onClick={(e) => handleChangeLeftPage(e)}
@@ -69,9 +74,7 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
             })}
           </span>
         </div>
-        {totalOfPages.length <= 3 ? (
-          null
-        ) : (
+        {totalOfPages.length <= 3 ? null : (
           <div
             className="soggy__buttonArrow soggy__right-arrow"
             onClick={() => handleChangeRightPage()}
