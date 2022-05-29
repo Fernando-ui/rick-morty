@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 
 import "../../sass/components/Soggy.scss";
 import { fetchAPIRickMorty } from "../../reducers/pagesReducer";
@@ -6,20 +7,24 @@ import { fetchAPICharacteres } from "../../reducers/CharacteresReducer";
 
 export const Soggy = ({ numberOfPages, typeOfSection }) => {
   const totalOfPages = [];
+  const dispatch = useDispatch();
+  const {
+    characteresPage: { pageOfCharacteres },
+    page: { page: selectedPage },
+  } = useSelector((state) => state);
   for (let i = 1; i <= numberOfPages; i++) {
     totalOfPages.push(i);
   }
 
-  const {
-    page: { page: paginaSeleccionada },
-  } = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const [moveSoggy, setMoveSoggy] = useState(0);
+  const moveOfSoggy = {
+    transition: "transform .5s ease",
+    transform: `translateX(${moveSoggy}rem)`,
+  };
 
   const handleGetNumber = (e) => {
-    const numberOfPage =
-      e.target.classList[0][e.target.classList[0].length - 1];
-      console.log(numberOfPage);
-      
+    const numberOfPage = e.target.classList[0].split("-")[1];
+
     switch (typeOfSection) {
       case "Episodes":
         dispatch(fetchAPIRickMorty(numberOfPage));
@@ -27,15 +32,19 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
         break;
       case "Characteres":
         dispatch(fetchAPICharacteres(numberOfPage));
-        console.log('Entrando al characteres');
-        
+
       default:
       case "Locations":
         break;
     }
   };
-  const handleChangeLeftPage = () => {};
-  const handleChangeRightPage = () => {};
+  const handleChangeLeftPage = () => {
+    setMoveSoggy(moveSoggy + 9.3);
+  };
+  const handleChangeRightPage = () => {
+    setMoveSoggy(moveSoggy - 9.3);
+  };
+
   return (
     <>
       <div className="soggy">
@@ -56,15 +65,21 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
           </div>
         )}
         <div className="soggy__container">
-          <span className="soggy__current">
+          <span className="soggy__current" style={moveOfSoggy}>
             {totalOfPages.map((number) => {
               return (
                 <span
                   onClick={(e) => handleGetNumber(e)}
                   key={number}
                   className={`soggy__current-${number} ${
-                    +paginaSeleccionada === number
-                      ? "soggy__current-active"
+                    typeOfSection === "Episodes"
+                      ? number === selectedPage
+                        ? "soggy__current-active"
+                        : ""
+                      : typeOfSection === "Characteres"
+                      ? number === pageOfCharacteres
+                        ? "soggy__current-active"
+                        : ""
                       : ""
                   }`}
                 >

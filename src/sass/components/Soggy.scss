@@ -9,7 +9,7 @@
   justify-content: center;
   &__container{
     overflow: hidden;
-    width:6rem;
+    width:10rem;
     position:relative;
   }
   &__current {
@@ -23,7 +23,7 @@
       color: var(--color-fourth);
     }
     & span {
-      margin-left: 1rem;
+      margin-left: .9rem;
     }
   }
   &__buttonArrow{
@@ -31,7 +31,7 @@
     height:1.5rem;
     position:absolute;
     top:0;
-    left:calc(50% - 5rem);
+    left:calc(50% - 6.5rem);
     cursor:pointer;
     &__img{
       text-align: center;
@@ -43,7 +43,7 @@
     }
   }
   &__right-arrow{
-    left:calc(50% - -4rem);
+    left:calc(50% - -5.5rem);
     
   }
   &__buttonArrow-right{
