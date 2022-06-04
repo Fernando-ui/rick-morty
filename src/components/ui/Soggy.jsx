@@ -35,6 +35,7 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
 
       default:
       case "Locations":
+        dispatch(fetchAPIRickMorty(numberOfPage));
         break;
     }
   };

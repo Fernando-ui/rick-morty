@@ -17,6 +17,7 @@
     z-index: 400;
     display:flex;
     flex-direction: column;
+
     justify-content: space-between;
     &__slider {
       display: grid;
@@ -32,6 +33,7 @@
   }
   &__created,
   &__characters,
+  &__locations,
   &__data {
     font-size: 1.5rem;
     margin: 0.5rem 0rem;

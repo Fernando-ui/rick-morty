@@ -1,50 +1,39 @@
-import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-
 import { fetchGet } from "../../helpers/postFetch";
-import { Soggy } from "../ui/Soggy";
 import card from "../../sass/layout/card.module.scss";
+import { Soggy } from "../ui/Soggy";
 
-export const CardEpisodes = ({ move }) => {
-  const {
-    page: { page },
-  } = useSelector((state) => state);
-  const [episodes, setEpisodes] = useState([]);
+export const CardLocations = () => {
+  // const slidderMove = {
+  //     transition: "transform .5s ease",
+  //     transform: `translateX(${move}rem)`,
+  //   };
   const [totalOfPages, setTotalOfPages] = useState(0);
-
-  const slidderMove = {
-    transition: "transform .5s ease",
-    transform: `translateX(${move}rem)`,
-  };
+  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
-    getEpisodes();
-  }, [page]);
-
-  const getEpisodes = async () => {
+    getLocations();
+  }, []);
+  const getLocations = async () => {
     const { results, info } = await fetchGet(
-      `https://rickandmortyapi.com/api/episode/?page=${+page}`
+      `https://rickandmortyapi.com/api/location`
     );
-
-    setEpisodes(results);
+    setLocations(results);
     setTotalOfPages(info.pages);
-    
   };
 
   return (
     <>
       <div className={` ${card.card__container}`}>
-        <div style={slidderMove} className={`${card.card__container__slider}`}>
-          {episodes.map(({ name, created, air_date, id, episode }) => {
+        <div  className={`${card.card__container__slider}`}>
+          {locations.map(({ created, dimension, id, name, type }) => {
             return (
               <div key={id} className={`${card.card}`}>
                 <div className={card.card__characters}>
                   <div className={card.card__name}>{name}</div>
                   <div>
-                    <span className={`${card.card__description}`}>
-                      Episode:
-                    </span>
-                    {episode}
+                    <span className={`${card.card__description}`}>name:</span>
+                    {name}
                   </div>
                   <div className={card.card__created}>
                     <span className={`${card.card__description}`}>
@@ -54,17 +43,20 @@ export const CardEpisodes = ({ move }) => {
                   </div>
                   <div className={card.card__date}>
                     <span className={`${card.card__description}`}>
-                      air date:
+                      dimension:
                     </span>
-                    {air_date}
+                    {dimension}
                   </div>
-                  
+                  <div className={card.card__date}>
+                    <span className={`${card.card__description}`}>type:</span>
+                    {type}
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <Soggy numberOfPages={totalOfPages}typeOfSection='Episodes'/>
+        <Soggy numberOfPages={totalOfPages}typeOfSection='Locations'/>
       </div>
     </>
   );
