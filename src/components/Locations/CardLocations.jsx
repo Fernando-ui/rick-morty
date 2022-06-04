@@ -11,10 +11,10 @@ export const CardLocations = ({ move }) => {
   const [totalOfPages, setTotalOfPages] = useState(0);
   const [locations, setLocations] = useState([]);
 
-  // const slidderMove = {
-  //     transition: "transform .5s ease",
-  //     transform: `translateX(${move}rem)`,
-  //   };
+  const slidderMove = {
+      transition: "transform .5s ease",
+      transform: `translateX(${move}rem)`,
+    };
 
   useEffect(() => {
     getLocations();
@@ -30,7 +30,7 @@ export const CardLocations = ({ move }) => {
   return (
     <>
       <div className={` ${card.card__container}`}>
-        <div className={`${card.card__container__slider}`}>
+        <div style={slidderMove} className={`${card.card__container__slider}`}>
           {locations.map(({ created, dimension, id, name, type }) => {
             return (
               <div key={id} className={`${card.card}`}>

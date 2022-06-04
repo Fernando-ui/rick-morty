@@ -13,8 +13,9 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
   const {
     characteresPage: { pageOfCharacteres },
     page: { page: selectedPage },
+    locationsPage: { pageOfLocations },
   } = useSelector((state) => state);
-  
+
   for (let i = 1; i <= numberOfPages; i++) {
     totalOfPages.push(i);
   }
@@ -38,7 +39,7 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
 
       default:
       case "Locations":
-        console.log('Entrando a locations');
+        console.log("Entrando a locations");
         dispatch(fetchAPILocations(numberOfPage));
         break;
     }
@@ -83,6 +84,10 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
                         : ""
                       : typeOfSection === "Characteres"
                       ? number === pageOfCharacteres
+                        ? "soggy__current-active"
+                        : ""
+                      : typeOfSection === "Locations"
+                      ? number === pageOfLocations
                         ? "soggy__current-active"
                         : ""
                       : ""

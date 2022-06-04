@@ -28,7 +28,6 @@ export const CardEpisodes = ({ move }) => {
 
     setEpisodes(results);
     setTotalOfPages(info.pages);
-    
   };
 
   return (
@@ -58,13 +57,12 @@ export const CardEpisodes = ({ move }) => {
                     </span>
                     {air_date}
                   </div>
-                  
                 </div>
               </div>
             );
           })}
         </div>
-        <Soggy numberOfPages={totalOfPages}typeOfSection='Episodes'/>
+        <Soggy numberOfPages={totalOfPages} typeOfSection="Episodes" />
       </div>
     </>
   );
