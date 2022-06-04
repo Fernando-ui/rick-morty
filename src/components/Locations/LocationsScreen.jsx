@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { CardLocations } from "./CardLocations";
 import HomeLayout from "../../sass/layout/Inicio.module.scss";
 import "../../sass/components/arrowButton.scss";
+import { ACTIONS } from "../../actions/Actions";
 
 export const Locations = () => {
   const [move, setMove] = useState(0);
@@ -18,7 +19,7 @@ export const Locations = () => {
       setMove(move + 25);
     } else {
       if (move <= -25 * 20) {
-        dispatch({ type: ACTIONS.ADDPAGE });
+        dispatch({ type: ACTIONS.ADDPAGELOCATION });
         setMove(0);
         return;
       }

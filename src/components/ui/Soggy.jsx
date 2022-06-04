@@ -36,10 +36,9 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
         break;
       case "Characteres":
         dispatch(fetchAPICharacteres(numberOfPage));
-
+        break;
       default:
       case "Locations":
-        console.log("Entrando a locations");
         dispatch(fetchAPILocations(numberOfPage));
         break;
     }

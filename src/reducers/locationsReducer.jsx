@@ -6,10 +6,12 @@ const initialState = { pageOfLocations: 1 };
 export const LocationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ACTIONS.ADDPAGELOCATION:
-      return { ...state, pageOfLocations: state.pageOfCharacteres + 1 };
+    console.log('Entrando a agregar');
+    
+      return { ...state, pageOfLocations: state.pageOfLocations + 1 };
 
     case ACTIONS.SUBTRACTPAGELOCATION:
-      return { ...state, pageOfLocations: state.pageOfCharacteres - 1 };
+      return { ...state, pageOfLocations: state.pageOfLocations - 1 };
     case ACTIONS.CHANGEPAGELOCATION:
       return { ...state, pageOfLocations: action.payload};
     default:
@@ -20,7 +22,6 @@ export const fetchAPILocations = (currentPage) => {
   return (dispatch) => {
      
     fetchGet(`https://rickandmortyapi.com/api/location?page=${currentPage}`);
-    console.log(currentPage,'Tenemos la current page');
     
     dispatch({ type: ACTIONS.CHANGEPAGELOCATION, payload: +currentPage });
   };
