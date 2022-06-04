@@ -4,14 +4,17 @@ import { useState } from "react";
 import "../../sass/components/Soggy.scss";
 import { fetchAPIRickMorty } from "../../reducers/pagesReducer";
 import { fetchAPICharacteres } from "../../reducers/CharacteresReducer";
+import { fetchAPILocations } from "../../reducers/locationsReducer";
 
 export const Soggy = ({ numberOfPages, typeOfSection }) => {
   const totalOfPages = [];
   const dispatch = useDispatch();
+
   const {
     characteresPage: { pageOfCharacteres },
     page: { page: selectedPage },
   } = useSelector((state) => state);
+  
   for (let i = 1; i <= numberOfPages; i++) {
     totalOfPages.push(i);
   }
@@ -35,7 +38,8 @@ export const Soggy = ({ numberOfPages, typeOfSection }) => {
 
       default:
       case "Locations":
-        dispatch(fetchAPIRickMorty(numberOfPage));
+        console.log('Entrando a locations');
+        dispatch(fetchAPILocations(numberOfPage));
         break;
     }
   };

@@ -14,7 +14,6 @@ export const Home = () => {
             <div className={`${HomeLayout.container__flex__title}`}>
               <Characteres />
             </div>
-           
           </div>
         </div>
         <div className={`${HomeLayout.container__locations}`}>

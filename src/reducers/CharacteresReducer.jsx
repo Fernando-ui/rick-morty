@@ -20,10 +20,7 @@ export const CharacteresReducer = (state = initialState, action) => {
 };
 export const fetchAPICharacteres = (currentPage) => {
   return (dispatch) => {
-    const algo = fetchGet(`https://rickandmortyapi.com/api/character?page=${currentPage}`);
-    console.log(algo,'Tenemos la respuesta de la peticion');
-    
-    console.log('Entrando al thungk');
+    fetchGet(`https://rickandmortyapi.com/api/character?page=${currentPage}`);
     
     dispatch({ type: ACTIONS.CHANGEPAGECHARACTER, payload: +currentPage });
   };

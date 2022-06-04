@@ -1,22 +1,27 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { fetchGet } from "../../helpers/postFetch";
 import card from "../../sass/layout/card.module.scss";
 import { Soggy } from "../ui/Soggy";
 
-export const CardLocations = () => {
+export const CardLocations = ({ move }) => {
+  const {
+    locationsPage: { pageOfLocations: page },
+  } = useSelector((state) => state);
+  const [totalOfPages, setTotalOfPages] = useState(0);
+  const [locations, setLocations] = useState([]);
+
   // const slidderMove = {
   //     transition: "transform .5s ease",
   //     transform: `translateX(${move}rem)`,
   //   };
-  const [totalOfPages, setTotalOfPages] = useState(0);
-  const [locations, setLocations] = useState([]);
 
   useEffect(() => {
     getLocations();
-  }, []);
+  }, [page]);
   const getLocations = async () => {
     const { results, info } = await fetchGet(
-      `https://rickandmortyapi.com/api/location`
+      `https://rickandmortyapi.com/api/location?page=${+page}`
     );
     setLocations(results);
     setTotalOfPages(info.pages);
@@ -25,7 +30,7 @@ export const CardLocations = () => {
   return (
     <>
       <div className={` ${card.card__container}`}>
-        <div  className={`${card.card__container__slider}`}>
+        <div className={`${card.card__container__slider}`}>
           {locations.map(({ created, dimension, id, name, type }) => {
             return (
               <div key={id} className={`${card.card}`}>
@@ -56,7 +61,7 @@ export const CardLocations = () => {
             );
           })}
         </div>
-        <Soggy numberOfPages={totalOfPages}typeOfSection='Locations'/>
+        <Soggy numberOfPages={totalOfPages} typeOfSection="Locations" />
       </div>
     </>
   );
